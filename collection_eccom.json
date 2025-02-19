@@ -1,0 +1,109 @@
+{
+    "info": {
+      "name": "Fake Store API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+      { "key": "base_url", "value": "https://fakestoreapi.com" }
+    ],
+    "item": [
+      {
+        "name": "Products",
+        "item": [
+          {
+            "name": "Get All Products",
+            "request": {
+              "method": "GET",
+              "url": { "raw": "{{base_url}}/products", "host": ["{{base_url}}"], "path": ["products"] }
+            }
+          },
+          {
+            "name": "Get Single Product",
+            "request": {
+              "method": "GET",
+              "url": { "raw": "{{base_url}}/products/:id", "host": ["{{base_url}}"], "path": ["products", ":id"] }
+            }
+          },
+          {
+            "name": "Add Product",
+            "request": {
+              "method": "POST",
+              "url": { "raw": "{{base_url}}/products", "host": ["{{base_url}}"], "path": ["products"] },
+              "header": [ { "key": "Content-Type", "value": "application/json" } ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"title\":\"New Product\", \"price\":29.99, \"description\":\"Description\", \"image\":\"https://i.pravatar.cc\", \"category\":\"electronics\"}"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Users",
+        "item": [
+          {
+            "name": "Get All Users",
+            "request": {
+              "method": "GET",
+              "url": { "raw": "{{base_url}}/users", "host": ["{{base_url}}"], "path": ["users"] }
+            }
+          },
+          {
+            "name": "Add User",
+            "request": {
+              "method": "POST",
+              "url": { "raw": "{{base_url}}/users", "host": ["{{base_url}}"], "path": ["users"] },
+              "header": [ { "key": "Content-Type", "value": "application/json" } ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"username\":\"johndoe\", \"password\":\"password123\", \"email\":\"johndoe@example.com\"}"
+              }
+            }
+          },
+          {
+            "name": "Login",
+            "request": {
+              "method": "POST",
+              "url": { "raw": "{{base_url}}/auth/login", "host": ["{{base_url}}"], "path": ["auth", "login"] },
+              "header": [ { "key": "Content-Type", "value": "application/json" } ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"username\":\"johndoe\", \"password\":\"password123\"}"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Carts",
+        "item": [
+          {
+            "name": "Get All Carts",
+            "request": {
+              "method": "GET",
+              "url": { "raw": "{{base_url}}/carts", "host": ["{{base_url}}"], "path": ["carts"] }
+            }
+          },
+          {
+            "name": "Get Single Cart",
+            "request": {
+              "method": "GET",
+              "url": { "raw": "{{base_url}}/carts/:id", "host": ["{{base_url}}"], "path": ["carts", ":id"] }
+            }
+          },
+          {
+            "name": "Add Cart",
+            "request": {
+              "method": "POST",
+              "url": { "raw": "{{base_url}}/carts", "host": ["{{base_url}}"], "path": ["carts"] },
+              "header": [ { "key": "Content-Type", "value": "application/json" } ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"userId\":1, \"date\":\"2023-10-12\", \"products\":[{\"productId\":5, \"quantity\":1}]}"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
