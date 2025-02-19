@@ -1,4 +1,5 @@
 import 'package:counter/feature/auth/logic/auth_cubit.dart';
+import 'package:counter/feature/auth/presentation/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -75,6 +76,17 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         context.read<AuthCubit>().login(
                             userNameController.text, passwordController.text);
+                      }),
+
+                  SizedBox(height: 24),
+                  CustomButton(
+                      label: 'Register',
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegisterScreen()
+                        ));
                       }),
                 ],
               ),

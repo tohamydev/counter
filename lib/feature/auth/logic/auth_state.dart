@@ -14,3 +14,13 @@ final class AuthLoginFailure extends AuthState {
 
   AuthLoginFailure(this.message);
 }
+
+final class AuthRegisterLoading extends AuthState {}
+
+final class AuthRegisterSuccess extends AuthState {}
+
+final class AuthRegisterFailure extends AuthState {
+  final String message;
+
+  AuthRegisterFailure(this.message);
+}
