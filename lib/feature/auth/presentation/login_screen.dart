@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/widgets/custom_button.dart';
 import '../../../core/widgets/custom_text_input.dart';
+import '../../home/presentation/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -23,15 +24,17 @@ class LoginScreen extends StatelessWidget {
             if (state is AuthLoginLoading) {
               showDialog(
                   context: context,
-                  builder: (context) => Center(child: CircularProgressIndicator()));
+                  builder: (context) =>
+                      Center(child: CircularProgressIndicator()));
             }
 
             if (state is AuthLoginSuccess) {
               Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text("Success Login"),
               ));
-
             }
 
             if (state is AuthLoginFailure) {
@@ -39,7 +42,6 @@ class LoginScreen extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text(state.message),
               ));
-
             }
           },
           builder: (context, state) {
@@ -77,7 +79,6 @@ class LoginScreen extends StatelessWidget {
                         context.read<AuthCubit>().login(
                             userNameController.text, passwordController.text);
                       }),
-
                   SizedBox(height: 24),
                   CustomButton(
                       label: 'Register',
@@ -85,8 +86,7 @@ class LoginScreen extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => RegisterScreen()
-                        ));
+                                builder: (context) => RegisterScreen()));
                       }),
                 ],
               ),

@@ -6,6 +6,9 @@ class Endpoints{
   static const String loginEndPoint = "/auth/login";
   static const String signUpEndPoint = "/users";
 
+  static const String currentUserDataEndpoint = "/users/2";
+  static const String productsEndpoint = "/products";
+
 
 
 }
