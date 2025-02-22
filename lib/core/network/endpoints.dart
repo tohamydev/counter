@@ -8,6 +8,7 @@ class Endpoints{
 
   static const String currentUserDataEndpoint = "/users/2";
   static const String productsEndpoint = "/products";
+  static const String productByIdEndpoint = "/products/";
 
 
 
